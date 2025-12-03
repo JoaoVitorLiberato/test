@@ -10,8 +10,8 @@
   const remote = ref(null)
 
   onMounted(async () => {
-    const { mount } = await import('home/App')
-    console.log("carregando MF...", remote.value)
-    mount(remote.value)
+    const mod = await import("home/App")
+    mod.default.mount(remote.value!)
   })
+
 </script>

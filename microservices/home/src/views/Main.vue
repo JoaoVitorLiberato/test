@@ -10,7 +10,7 @@
         cols="12"
       >
         <h1>
-          Página principal Home
+          Microfrontend
         </h1>
       </v-col>
     </v-row>
