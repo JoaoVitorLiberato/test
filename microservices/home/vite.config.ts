@@ -31,8 +31,8 @@ export default defineConfig(({ mode }) => {
         exposes: {
           './App': './src/main.ts'  // ← Use remote.ts para mount/unmount
         },
-        shared: ['vue', 'vue-router', 'pinia', 'vuetify']
-        // publicPath: 'auto'  // ← Opcional, mas remove conflito
+        shared: ['vue', 'vue-router', 'pinia', 'vuetify'],
+        shareScope: "mf_home" // ← Opcional, mas remove conflito
       }),
 
       vue({
