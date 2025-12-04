@@ -1,51 +1,19 @@
 services:
-  application:
+  build-mf-home:
     build:
-      dockerfile: Dockerfile
-      context: ./
-    image: vetex/tim-varejo-frontend
-    container_name: container
-    volumes:
-      - ./:/app/
-    ports:
-      - 9000:9000
-    tty: true
-    restart: unless-stopped
-    networks:
-      - frontend
-    depends_on:
-      - mf-home
-  mf-home:
-    build:
-      dockerfile: Dockerfile
       context: ./microservices/home
-    image: vetex/mf-varejo-homepage
-    container_name: mf-home
+      dockerfile: Dockerfile
     volumes:
-      - ./microservices/home/:/app/
+      - mf-home-dist:/app/dist
+
+  nginx:
+    build: .
     ports:
-      - 8081:8081
-    networks:
-      - frontend
-    tty: true
-    restart: unless-stopped
+      - 8080:80
+    volumes:
+      - mf-home-dist:/usr/share/nginx/html/mf-home:ro
+    depends_on:
+      - build-mf-home
 
-  # nginx:
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: ./nginx
-  #   image: vetex/server
-  #   container_name: server
-  #   ports:
-  #     - 8080:80
-  #   networks:
-  #     - frontend
-  #   tty: true
-  #   restart: unless-stoped
-  #   depends_on:
-  #     - application
-
-
-networks:
-  frontend:
-    driver: bridge
+volumes:
+  mf-home-dist:

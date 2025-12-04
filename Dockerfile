@@ -1,17 +1,23 @@
-# Development stage
-FROM oven/bun:alpine
+# Dockerfile (na raiz do projeto — VERSÃO FINAL)
+FROM oven/bun:alpine AS builder
 WORKDIR /app
 
-COPY bun.lock package.json ./
-COPY tsconfig.json ./
-COPY tsconfig.app.json ./
-COPY tsconfig.node.json ./
-
+COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
-
 COPY . .
 
-RUN bun run build
+# Força o build com bunx (funciona 100%)
+RUN bunx --bun vite build --base=/
 
-EXPOSE 9000
-CMD ["bun", "dev", "dev", "--host", "0.0.0.0"]
+FROM nginx:1.28.0-alpine-slim
+
+# Remove tudo que vem por padrão
+RUN rm -rf /etc/nginx/conf.d/*
+
+# Seu config perfeito
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Só copia o shell (mf-home vem do volume!)
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
