@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => {
       })
     ],
 
-    // Limit HTML asset handling to src files so the root index.html still renders
     assetsInclude: ['src/**/*.html'],
 
     resolve: {

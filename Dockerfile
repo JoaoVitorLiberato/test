@@ -1,4 +1,3 @@
-# Dockerfile (na raiz do projeto — VERSÃO FINAL)
 FROM oven/bun:alpine AS builder
 WORKDIR /app
 

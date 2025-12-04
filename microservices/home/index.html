@@ -1,22 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>%VITE_APP_WEB_TITLE%</title>
 
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), interest-cohort=()">
 
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="%VITE_APP_WEB_TITLE%">
     <meta name="description" content="%VITE_APP_WEB_DESCRIPTION%">
     <meta name="subject" content="Planos Esim, Planos controle, Planos Pós, Planos Família, Esim">
-    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="google-adsense-account" content="ca-pub-5675850788545345">
 
     <base href="/">
     <link rel="home" href="%VITE_APP_WEB_URL%">
     <link rel="canonical" href="%VITE_APP_WEB_URL%">
     <link rel="alternate" media="only screen and (max-width: 640px)" href="%VITE_APP_WEB_URL%">
+
+    <script>
+      (function() {
+        'use strict';
+        function handleReadyState() {
+          const mask = document.getElementById("mask--app");
+          if (!mask) return;
+          
+          if (/interactive/.test(document.readyState)) {
+            mask.style.display = "flex";
+          }
+          if (/complete/.test(document.readyState)) {
+            mask.style.display = "none";
+          }
+        }
+
+        document.onreadystatechange = handleReadyState;
+        if (document.readyState === 'complete') {
+          setTimeout(function() {
+            const mask = document.getElementById("mask--app");
+            if (mask) mask.style.display = "none";
+          }, 100);
+        }
+      })();
+    </script>
 
     <link href="/favicon.ico" rel="icon">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
@@ -55,8 +83,8 @@
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
     <script async type="text/javascript" src="/js/canonical.js"></script>
-    <script async type="text/javascript" src="/js/ tracking.js"></script>
-  
+    <script async type="text/javascript" src="/js/tracking.js"></script>
+
     <style>
       * {
         touch-action: manipulation;
@@ -73,9 +101,9 @@
         overflow-y: scroll;
         overscroll-behavior: contain;
       }
-      #mask--app {
+      /* #mask--app {
         display: none;
-      }
+      } */
       #mask--app,
       #noscript-content {
         position: fixed;
@@ -104,7 +132,7 @@
         text-decoration:none
       }
       #normal-content {
-        background-color: #fff;
+                background-color: #fff;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
@@ -119,14 +147,16 @@
     <div id="mask--app">
       <div>
         <div id="normal-content">
-          <div style="width:180px;height:180px;transform:translate(-50%,-50%);position:absolute;left:50%;top:50%;background-color:var(--v-primary-base);">
+          <div style="width:310px;height:310px;transform:translate(-50%,-50%);position:absolute;left:50%;top:50%;background-color: #fff;">
             <img
-              src="/favicon.png"
-              height="180"
-              width="180"
+              src="/assets/icons/android-chrome-192x192.png"
+              height="310"
+              width="310"
               alt="%VITE_APP_WEB_TITLE%"
               title="%VITE_APP_WEB_TITLE%"
-            ></img>
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
@@ -135,7 +165,7 @@
     <noscript>
       <div id="noscript-content">
         <header style="padding:14px 10px 0 10px;">
-          <img src="/assets/icons/android-chrome-192x192.png" height="32" width="32" alt="%VITE_APP_WEB_TITLE%" title="%VITE_APP_WEB_TITLE%"></img>
+          <img src="/assets/icons/android-chrome-192x192.png" height="32" width="32" alt="%VITE_APP_WEB_TITLE%" title="%VITE_APP_WEB_TITLE%" loading="eager" decoding="async" />
         </header>
 
         <nav style="padding:0 8px;height:72px;">
@@ -158,7 +188,7 @@
       </div>
     </noscript>
 
-    <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <div id="app"></div>
   </body>
 </html>
