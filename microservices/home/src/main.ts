@@ -12,6 +12,7 @@ app.use(vuetify)
 app.use(router)
 app.use(store)
 
+/* Descomentar quando for rodar apenas home */
 // app.mount('#app')
 
 export default app

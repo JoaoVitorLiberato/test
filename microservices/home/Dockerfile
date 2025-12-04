@@ -14,4 +14,4 @@ COPY . .
 RUN bun run build
 
 EXPOSE 8081
-CMD ["bun", "dev", "preview", "--host", "0.0.0.0"]
+CMD ["bun", "run", "preview", "--host", "0.0.0.0", "--port", "8081"]

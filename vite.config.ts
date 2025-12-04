@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
 
       federation({
         remotes: {
+          // home: "remote@http://mf-home:8081/remoteEntry.js"
           home: "http://localhost:8081/remoteEntry.js"
         },
         shared: ["vue"]

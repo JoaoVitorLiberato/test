@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
       context: ./microservices/home
     image: vetex/mf-varejo-homepage
-    container_name: mf-varejo-homepage
+    container_name: mf-home
     volumes:
       - ./microservices/home/:/app/
     ports:
