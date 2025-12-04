@@ -75,16 +75,6 @@ export default defineConfig(({ mode }) => {
       assetsDir: './',
 
       rollupOptions: {
-        // output: {
-        //   // 3. Remove hashes do HTML (opcional, mas facilita o debug)
-        //   assetFileNames: (assetInfo) => {
-        //     if (assetInfo.name === 'index.html') {
-        //       return '[name].[ext]';
-        //     }
-        //     return 'assets/[name]-[hash].[ext]';
-        //   }
-        // },
-        // 4. Garante que o index.html seja o ponto de entrada principal
         input: 'index.html', 
       }
     },
