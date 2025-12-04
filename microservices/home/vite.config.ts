@@ -94,7 +94,7 @@ export default defineConfig(({ mode }) => {
               }
             })
             */
-            return feedBuilder.buildXml()  // ← Retorna XML vazio por enquanto para testar
+            return feedBuilder.buildXml()
           })(),
         }),
         ...VERSION_MARK_CONFIG
