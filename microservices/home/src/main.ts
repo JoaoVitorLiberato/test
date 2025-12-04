@@ -13,7 +13,7 @@ app.use(router)
 app.use(store)
 
 /* Descomentar quando for rodar apenas home */
-app.mount('#app')
+// app.mount('#app')
 
 export function mount(el: Element | string) {
   if (typeof el === 'string') {

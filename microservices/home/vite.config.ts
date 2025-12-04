@@ -29,9 +29,9 @@ export default defineConfig(({ mode }) => {
         name: 'mf_home',  // ← Nome correto
         filename: 'remoteEntry.js',
         exposes: {
-          './App': './src/remote.ts'  // ← Use remote.ts para mount/unmount
+          './App': './src/main.ts'  // ← Use remote.ts para mount/unmount
         },
-        shared: ["vue"],
+        shared: ['vue', 'vue-router', 'pinia', 'vuetify']
         // publicPath: 'auto'  // ← Opcional, mas remove conflito
       }),
 
