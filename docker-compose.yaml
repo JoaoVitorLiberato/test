@@ -10,6 +10,7 @@ services:
     build: .
     ports:
       - 8080:80
+    container_name: server
     volumes:
       - mf-home-dist:/usr/share/nginx/html/mf-home:ro
     depends_on:

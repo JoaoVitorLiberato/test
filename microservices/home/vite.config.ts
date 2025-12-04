@@ -31,7 +31,7 @@ export default defineConfig(({ mode }) => {
         exposes: {
           './App': './src/remote.ts'
         },
-        shared: ['vue', 'vue-router', 'pinia', 'vuetify'],
+        shared: ['vue'],
         shareScope: "mf_home"
       }),
 
