@@ -26,13 +26,13 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       federation({
-        name: 'mf_home',  // ← Nome correto
+        name: 'mf_home',
         filename: 'remoteEntry.js',
         exposes: {
-          './App': './src/main.ts'  // ← Use remote.ts para mount/unmount
+          './App': './src/remote.ts'
         },
         shared: ['vue', 'vue-router', 'pinia', 'vuetify'],
-        shareScope: "mf_home" // ← Opcional, mas remove conflito
+        shareScope: "mf_home"
       }),
 
       vue({
@@ -168,10 +168,9 @@ export default defineConfig(({ mode }) => {
       cssCodeSplit: false,
       assetsDir: '',
 
-      base: '/mf-home/',  // ← Essencial, remove o rollupOptions.output para evitar erro TS
+      base: '/mf-home/',
 
       rollupOptions: {
-        // ← REMOVIDO: output { publicPath } — isso causava o erro de tipagem!
         input: 'index.html',
       }
     },
