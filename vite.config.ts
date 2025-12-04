@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import federation from '@originjs/vite-plugin-federation'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, URL } from 'url'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -9,9 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      vue({
-        template: {},
-      }),
+      vue(),
 
       federation({
         remotes: {
@@ -41,9 +39,16 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      port: 8080,
-      cors: true
+      port: 9000,
+      cors: true,
+      strictPort: true
     },
+
+    preview: {
+      port: 9000,
+      strictPort: true
+    },
+
 
     optimizeDeps: {
       include: [
@@ -61,6 +66,9 @@ export default defineConfig(({ mode }) => {
       target: 'esnext',
       assetsInlineLimit: 126,
       sourcemap: 'hidden',
+      minify: false,
+      cssCodeSplit: false,
+      assetsDir: './'
     },
   }
 })

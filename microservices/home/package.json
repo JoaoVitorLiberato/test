@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node node_modules/vite/bin/vite.js dev --host",
     "start": "vite",
-    "build": "vite build",
+    "build": "rm -rf dist && vite build",
     "build-checker": "vue-tsc -b && vite build",
     "lint": "eslint . --fix",
     "preview": "vite preview --host"

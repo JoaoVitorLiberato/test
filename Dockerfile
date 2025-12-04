@@ -13,5 +13,5 @@ COPY . .
 
 RUN bun run build
 
-EXPOSE 8081
-CMD ["bun", "dev", "preview", "--host", "0.0.0.0"]
+EXPOSE 9000
+CMD ["bun", "dev", "dev", "--host", "0.0.0.0"]

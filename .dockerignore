@@ -1,0 +1,8 @@
+microservices
+nginx
+node_modules
+dist
+.git
+.gitignore
+Dockerfile
+Dockerfile.*

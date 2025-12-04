@@ -163,7 +163,8 @@ export default defineConfig(({ mode }) => {
 
     server: {
       port: 8081,
-      cors: true
+      cors: true,
+      strictPort: true
     },
 
     preview: {

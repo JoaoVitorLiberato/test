@@ -1,5 +1,5 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
-import homeView from './modules/homeView'
+import homeView from '@/plugins/router/modules/homeView'
 
 
 const routes = [].concat(
