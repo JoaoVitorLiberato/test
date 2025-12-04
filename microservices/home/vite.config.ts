@@ -130,6 +130,8 @@ export default defineConfig(({ mode }) => {
       vuetify({ autoImport: true }),
     ],
 
+    assetsInclude: ['**/*.html'],
+
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('src', import.meta.url)),
@@ -186,7 +188,14 @@ export default defineConfig(({ mode }) => {
       sourcemap: 'hidden',
       minify: false,
       cssCodeSplit: false,
-      assetsDir: ''
+      assetsDir: '',
+
+      rollupOptions: {
+        output: {
+          // Isso faz o remoteEntry.js ser servido em /mf-home/
+          publicPath: "/mf-home/"
+        }
+      }
     },
   }
 })

@@ -12,13 +12,17 @@ export default defineConfig(({ mode }) => {
       vue(),
 
       federation({
+        name: "container",
         remotes: {
           // home: "remote@http://mf-home:8081/remoteEntry.js"
-          home: "http://localhost:8081/remoteEntry.js"
+          home: "mf_home@http://localhost:8080/mf-home/remoteEntry.js",
+          // home: "http://localhost:8081/remoteEntry.js"
         },
         shared: ["vue"]
       })
     ],
+
+    assetsInclude: ['**/*.html'],
 
     resolve: {
       alias: {
@@ -69,7 +73,21 @@ export default defineConfig(({ mode }) => {
       sourcemap: 'hidden',
       minify: false,
       cssCodeSplit: false,
-      assetsDir: './'
+      assetsDir: './',
+
+      rollupOptions: {
+        // output: {
+        //   // 3. Remove hashes do HTML (opcional, mas facilita o debug)
+        //   assetFileNames: (assetInfo) => {
+        //     if (assetInfo.name === 'index.html') {
+        //       return '[name].[ext]';
+        //     }
+        //     return 'assets/[name]-[hash].[ext]';
+        //   }
+        // },
+        // 4. Garante que o index.html seja o ponto de entrada principal
+        input: 'index.html', 
+      }
     },
   }
 })

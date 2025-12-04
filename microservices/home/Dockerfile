@@ -11,7 +11,7 @@ RUN bun install --frozen-lockfile
 
 COPY . .
 
-RUN bun run build
+RUN bun run build -- --base=/mf-home/
 
 EXPOSE 8081
 CMD ["bun", "run", "preview", "--host", "0.0.0.0", "--port", "8081"]
