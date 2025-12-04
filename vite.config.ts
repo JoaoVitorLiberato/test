@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => {
       federation({
         name: "container",
         remotes: {
-          // home: "remote@http://mf-home:8081/remoteEntry.js"
           home: "mf_home@http://localhost:8080/mf-home/remoteEntry.js",
           // home: "http://localhost:8081/remoteEntry.js"
         },

@@ -10,7 +10,7 @@
         cols="12"
       >
         <h1>
-          Microfrontend
+          Microfrontend mf-home
         </h1>
       </v-col>
     </v-row>

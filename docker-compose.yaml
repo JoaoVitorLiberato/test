@@ -1,4 +1,4 @@
-services:
+# services:
   # application:
   #   build:
   #     dockerfile: Dockerfile
@@ -16,38 +16,68 @@ services:
   #   depends_on:
   #     mf-home:
   #       condition: service_started
-  mf-home:
-    build:
-      dockerfile: Dockerfile
-      context: ./microservices/home
-    image: vetex/mf-varejo-homepage
-    container_name: mf-home
-    command: ["bun", "run", "preview", "--host", "0.0.0.0", "--port", "8081"]
-    volumes:
-      - ./microservices/home/:/app/
-    ports:
-      - 8081:8081
-    networks:
-      - frontend
-    tty: true
-    restart: unless-stopped
+#   mf-home:
+#     build:
+#       dockerfile: Dockerfile
+#       context: ./microservices/home
+#     image: vetex/mf-varejo-homepage
+#     container_name: mf-home
+#     command: ["bun", "run", "preview", "--host", "0.0.0.0", "--port", "8081"]
+#     volumes:
+#       - ./microservices/home/:/app/
+#     ports:
+#       - 8081:8081
+#     networks:
+#       - frontend
+#     tty: true
+#     restart: unless-stopped
 
-  nginx:
-    build:
+#   nginx:
+#     build:
+#       dockerfile: Dockerfile
+#     image: vetex/server
+#     container_name: server
+#     ports:
+#       - 8080:80
+#     networks:
+#       - frontend
+#     tty: true
+#     restart: unless-stopped
+#     depends_on:
+#       mf-home:
+#         condition: service_started
+
+
+# networks:
+#   frontend:
+#     driver: bridge
+services:
+  # 1. Build de todos os microfrontends (não ficam rodando)
+  build-mf-home:
+    build: 
+      context: ./microservices/home
       dockerfile: Dockerfile
-    image: vetex/server
-    container_name: server
+    volumes:
+      - mf-home-dist:/dist
+
+  # build-mf-admin:
+  #   build: ./microservices/admin
+  #   volumes:
+  #     - mf-admin-dist:/dist
+
+  # 2. Nginx único que serve tudo
+  nginx:
+    build: .                     # usa o Dockerfile do shell (que já tem Nginx)
+    volumes:
+      - ./dist:/usr/share/nginx/html            # shell
+      - mf-home-dist:/usr/share/nginx/html/mf-home
+      # - mf-admin-dist:/usr/share/nginx/html/mf-admin
     ports:
       - 8080:80
-    networks:
-      - frontend
-    tty: true
-    restart: unless-stopped
     depends_on:
-      mf-home:
-        condition: service_started
+      - build-mf-home
+      # - build-mf-admin
 
-
-networks:
-  frontend:
-    driver: bridge
+volumes:
+  mf-home-dist:
+  # mf-admin-dist:

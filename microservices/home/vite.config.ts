@@ -28,12 +28,12 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       federation({
-        name: 'home',
+        name: 'mf_home',
         filename: 'remoteEntry.js',
         exposes: {
-          './App': './src/remote.ts'
+          './App': './src/main.ts'
         },
-        shared: ["vue"],
+        shared: ["vue"]
       }),
 
       vue({
@@ -182,6 +182,8 @@ export default defineConfig(({ mode }) => {
       },
     },
 
+    base: "/mf-home/",
+
     build: {
       target: 'esnext',
       assetsInlineLimit: 126,
@@ -189,13 +191,11 @@ export default defineConfig(({ mode }) => {
       minify: false,
       cssCodeSplit: false,
       assetsDir: '',
-
-      rollupOptions: {
-        output: {
-          // Isso faz o remoteEntry.js ser servido em /mf-home/
-          publicPath: "/mf-home/"
-        }
-      }
+      // rollupOptions: {
+      //   output: {
+      //     publicPath: "/mf-home/"
+      //   }
+      // }
     },
   }
 })
