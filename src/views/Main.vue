@@ -10,15 +10,21 @@
 
   onMounted(async () => {
     try {
-      const mod = await import("mf_home/App")  // ← Mude aqui para "mf_home/App"
+      const mod = await import('mf_home/App')
       mod.default.mount(remote.value!)
-      console.log('MF-Home mounted successfully!')  // Adicione para debug
+      console.log('MF-Home mounted successfully!')
     } catch (err) {
-      console.error('Error loading MF-Home:', err)  // Adicione para capturar erros
+      console.error('Error loading MF-Home:', err)
     }
+  })
 
   onUnmounted(async () => {
-    const mod = await import("mf_home/App")  // ← Mude aqui para "mf_home/App"
-    mod.default.mount()// Adicione para debug
+    try {
+      const mod = await import('mf_home/App')
+      mod.default.unmount?.()
+      console.log('MF-Home unmounted successfully!')
+    } catch (err) {
+      console.error('Error unloading MF-Home:', err)
+    }
   })
 </script>

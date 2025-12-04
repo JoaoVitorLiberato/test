@@ -21,7 +21,8 @@ export default defineConfig(({ mode }) => {
       })
     ],
 
-    assetsInclude: ['**/*.html'],
+    // Limit HTML asset handling to src files so the root index.html still renders
+    assetsInclude: ['src/**/*.html'],
 
     resolve: {
       alias: {
