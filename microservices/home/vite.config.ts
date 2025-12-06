@@ -5,7 +5,7 @@ import Sitemap from "vite-plugin-sitemap"
 import { FeedBuilder } from '@xcommerceweb/google-merchant-feed'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { vitePluginVersionMark } from 'vite-plugin-version-mark'
-import federation from "@originjs/vite-plugin-federation"
+import { federation } from '@module-federation/vite'
 
 import URLS from './public/data/sitemap/urls.json'
 
@@ -28,17 +28,19 @@ export default defineConfig(({ mode }) => {
     plugins: [
       federation({
         name: 'mf_home',
-        filename: 'remoteEntry.js',
+        filename: 'remoteEntry.[hash].js',
+        manifest: true,
+
         remotes: {
-          core: `http://localhost:8080/core/remoteEntry.js`
+          core: `http://localhost:8080/core/.vite/manifest.json`
         },
+
         exposes: {
           './App': './src/remote.ts'
         },
+
         shared: {
-          vue: {
-            singleton: true
-          }
+          vue: { singleton: true }
         },
       }),
 
@@ -167,17 +169,11 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
-      target: 'esnext',
-      assetsInlineLimit: 126,
-      sourcemap: 'hidden',
-      minify: false,
-      cssCodeSplit: false,
-      assetsDir: '',
-
       base: '/mf-home/',
+      target: 'esnext',
+      cssCodeSplit: false,
 
       rollupOptions: {
-        // external: ["core"],
         input: 'index.html',
       }
     },

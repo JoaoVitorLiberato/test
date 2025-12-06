@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view
-      name="ViewHome"
+      name="ViewHero"
     />
   </div>
 </template>
