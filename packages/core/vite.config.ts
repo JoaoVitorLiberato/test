@@ -10,17 +10,25 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
-
       federation({
-        name: "container",
-        remotes: {
-          mf_home: "http://localhost:8080/mf-home/remoteEntry.js"
+        name: "core",
+        filename: "remoteEntry.js",
+        exposes: {
+          ".": "./src/index.ts"
         },
-        shared: ["vue"]
+        shared: {
+          vue: {
+            singleton: true
+          },
+          pinia: {
+            singleton: true,
+            eager: true,
+          },
+        }
       })
     ],
-
-    assetsInclude: ['src/**/*.html'],
+    
+    assetsInclude: ['**/*.html', "src/**/*.html"],
 
     resolve: {
       alias: {
@@ -42,28 +50,15 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      port: 9000,
+      port: 3000,
       cors: true,
       strictPort: true
     },
 
     preview: {
-      port: 9000,
+      port: 3000,
       strictPort: true
     },
-
-
-    optimizeDeps: {
-      include: [
-        "vue-router",
-      ],
-      exclude: [
-        'unplugin-vue-router/runtime',
-        'unplugin-vue-router/data-loaders',
-        'unplugin-vue-router/data-loaders/basic',
-      ]
-    },
-
 
     build: {
       target: 'esnext',
@@ -71,11 +66,19 @@ export default defineConfig(({ mode }) => {
       sourcemap: 'hidden',
       minify: false,
       cssCodeSplit: false,
-      assetsDir: './',
+      assetsDir: '',
+
+      base: '/core/',
 
       rollupOptions: {
-        input: 'index.html', 
-      }
+        external: ['vue', 'pinia'],
+        output: {
+          globals: {
+            vue: 'Vue',
+            pinia: 'Pinia',
+          },
+        },
+      },
     },
   }
 })
