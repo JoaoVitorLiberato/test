@@ -19,11 +19,15 @@
 
 <script setup lang="ts">
   import { onMounted } from "vue"
-  // import { ensureRemote } from '@/utils/federation';
+  import { ensureRemote } from '@/utils/federation';
 
 onMounted(async () => {
   try {
-    // await ensureRemote('core', 'http://localhost:8080/core/remoteEntry.js');
+    await ensureRemote(
+      "core",
+      "http://localhost:8080/core/remoteEntry.js",
+      "/index"
+    );
     const core = await import('core/index'); // usar o caminho exposto
     console.log('core loaded', core);
   } catch (err) {
