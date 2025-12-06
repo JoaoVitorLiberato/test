@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
         name: 'mf_home',
         filename: 'remoteEntry.js',
         remotes: {
-          core: "core@http://localhost:8080/core/remoteEntry.js"
+          core: `http://localhost:8080/core/remoteEntry.js`
         },
         exposes: {
           './App': './src/remote.ts'
@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
           vue: {
             singleton: true
           }
-        }
+        },
       }),
 
       vue({
