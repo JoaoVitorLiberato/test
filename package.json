@@ -7,7 +7,9 @@
     "dev": "vite --host",
     "build": "bunx --bun vite build",
     "build-checker": "vue-tsc -b && vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "install:all": "bash execute.sh",
+    "setup": "bun run install:all"
   },
   "dependencies": {
     "vue": "^3.5.24",
