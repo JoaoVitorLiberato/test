@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       vue(),
       federation({
         name: "core",
-        filename: "remoteEntry.js",
+        filename: `remoteEntry.js`,
         exposes: {
           "./index": "./src/index.ts"
         },
@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => {
             eager: true,
           },
         },
-        manifest: false,               // importante
-        runtimePlugins: false,          // evita gerar ESM errado
+        manifest: true,
+        runtimePlugins: false,
         scriptFormat: "iife", 
       })
     ],
