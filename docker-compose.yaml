@@ -1,4 +1,11 @@
 services:
+  build-core:
+    build:
+      context: ./packages/core
+      dockerfile: Dockerfile
+    image: vertex/core-packages
+    volumes:
+      - core-dist:/app/dist
   build-mf-home:
     build:
       context: ./microservices/home
@@ -6,22 +13,6 @@ services:
     image: vertex/tim-varejo-mf-home
     volumes:
       - mf-home-dist:/app/dist
-  # build-core:
-  #   build:
-  #     context: ./packages/core
-  #     dockerfile: Dockerfile
-  #   image: vertex/core-packages
-  #   volumes:
-  #     - core-dist:/app/dist
-  build-core:
-    build:
-      context: ./packages/core
-      dockerfile: Dockerfile
-      target: export-dist
-    image: vertex/core-packages
-    volumes:
-      - core-dist:/dist
-
   nginx:
     build: .
     ports:
@@ -29,12 +20,12 @@ services:
     container_name: server
     image: vertex/tim-varejo-nginx
     volumes:
-      - mf-home-dist:/usr/share/nginx/html/mf-home:ro
       - core-dist:/usr/share/nginx/html/core:ro
+      - mf-home-dist:/usr/share/nginx/html/mf-home:ro
     depends_on:
-      - build-mf-home
       - build-core
+      - build-mf-home
 
 volumes:
-  mf-home-dist:
   core-dist:
+  mf-home-dist:

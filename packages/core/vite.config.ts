@@ -24,7 +24,10 @@ export default defineConfig(({ mode }) => {
             singleton: true,
             eager: true,
           },
-        }
+        },
+        manifest: false,               // importante
+        runtimePlugins: false,          // evita gerar ESM errado
+        scriptFormat: "iife", 
       })
     ],
     
@@ -70,15 +73,11 @@ export default defineConfig(({ mode }) => {
 
       base: '/core/',
 
-      // rollupOptions: {
-      //   external: ['vue', 'pinia'],
-      //   output: {
-      //     globals: {
-      //       vue: 'Vue',
-      //       pinia: 'Pinia',
-      //     },
-      //   },
-      // },
+      rollupOptions: {
+        output: {
+          format: "esm"
+        }
+      }
     },
   }
 })
