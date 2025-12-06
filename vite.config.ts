@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
         manifest: true,
 
         remotes: {
-          mf_home: "http://localhost:8080/mf-home/.vite/manifest.json"
+          mf_home: "http://localhost:8080/mf-home/remoteEntry.js"
         },
 
         shared: {
