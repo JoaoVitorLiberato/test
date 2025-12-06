@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
         name: "core",
         filename: "remoteEntry.js",
         exposes: {
-          ".": "./src/index.ts"
+          "./index": "./src/index.ts"
         },
         shared: {
           vue: {
@@ -70,15 +70,15 @@ export default defineConfig(({ mode }) => {
 
       base: '/core/',
 
-      rollupOptions: {
-        external: ['vue', 'pinia'],
-        output: {
-          globals: {
-            vue: 'Vue',
-            pinia: 'Pinia',
-          },
-        },
-      },
+      // rollupOptions: {
+      //   external: ['vue', 'pinia'],
+      //   output: {
+      //     globals: {
+      //       vue: 'Vue',
+      //       pinia: 'Pinia',
+      //     },
+      //   },
+      // },
     },
   }
 })
