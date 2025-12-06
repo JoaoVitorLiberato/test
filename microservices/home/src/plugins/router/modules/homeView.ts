@@ -7,7 +7,7 @@ export default [
         path: '',
         name: 'homeView',
         components: {
-          ViewHome: () => import('@/views/Main.vue'),
+          ViewHero: () => import('@/views/ViewHero.vue'),
         },
       },
     ],
