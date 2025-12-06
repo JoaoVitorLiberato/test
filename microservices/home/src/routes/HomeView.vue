@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <v-main>
     <router-view
       name="ViewHero"
     />
-  </div>
+  </v-main>
 </template>
 
 <script setup lang="ts">

@@ -1,6 +1,8 @@
 <!-- src/views/Main.vue (no shell, não no mf-home) -->
 <template>
-  <div ref="remote" />
+  <v-main>
+    <div ref="remote" />
+  </v-main>
 </template>
 
 <script setup lang="ts">
