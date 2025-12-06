@@ -1,0 +1,429 @@
+{
+  "vtxtimvarejocontrole": {
+    "sku": "vtxtimvarejocontrole",
+    "name": "TIM Controle 1.0",
+    "price": {
+      "base": 8899,
+      "fidelity": 5899,
+      "additional": 0
+    },
+    "franchise": {
+      "base": 15000,
+      "total": 35000,
+      "bonus": {
+        "pormesporumano": 10000,
+        "especial": 10000
+      }
+    },
+    "description": {
+      "ligacao": "Ligações Ilimitadas para todas as operadoras",
+      "sms": "SMS Ilimitado para todas as operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "15GB Core + 10GB Promo + 10GB Especial"
+    },
+    "vas": {
+      "inclusos": {
+        "title": "Apps inclusos",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          }
+        ]
+      },
+      "adicionais": {
+        "title": "Escolha o melhor streaming",
+        "items": [
+          {
+            "name": "Deezer Now",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/deezer-now.svg"
+          },
+          {
+            "name": "Paramount+",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/paramount.svg"
+          },
+          {
+            "name": "Prime Vídeo - Versão celular",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/prime-video-versao-celular.svg"
+          }
+        ]
+      }
+    },
+    "details": {
+      "infos": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp incluso",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          },
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/sms-icon.png"
+          }
+        ]
+      },
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Bancah Jornais II",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/banca-jornais-benefit.png"
+          },
+          {
+            "name": "EXA Segurança",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "regulamentos": {
+        "name": "Regulamentos",
+        "items": {
+          "etiqueta com prazo": {
+            "name": "Etiqueta padrão da oferta com prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/com-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-1.0-Fidel.pdf"
+          },
+          "etiqueta sem prazo": {
+            "name": "Etiqueta padrão da oferta sem prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/sem-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-1.0-Nao-Fidel.pdf"
+          },
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-do-plano.pdf"
+          },
+          "fidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-fidelizacao.pdf"
+          },
+          "especial": {
+            "name": "Regulamento de bônus Especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-especial.pdf"
+          },
+          "promo": {
+            "name": "Regulamento de bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-promo.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimvarejocontroleplus": {
+    "sku": "vtxtimvarejocontroleplus",
+    "name": "TIM Controle Plus 1.0",
+    "price": {
+      "base": 10299,
+      "fidelity": 6499,
+      "additional": 0
+    },
+    "franchise": {
+      "base": 20000,
+      "total": 55000,
+      "bonus": {
+        "especial": 10000,
+        "redessociais": 5000,
+        "pormesporumano": 20000
+      }
+    },
+    "description": {
+      "ligacao": "Ligações Ilimitadas para todas as operadoras",
+      "sms": "SMS Ilimitado para todas as operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "20GB Core + 20GB Promo + 10GB Especial + 5GB Dedicado Redes sociais"
+    },
+    "vas": {
+      "exclusivos": {
+        "items": [
+          {
+            "name": "X",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/x-icon.svg"
+          },
+          {
+            "name": "Facebook",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/facebook-icon.svg"
+          },
+          {
+            "name": "Instagram",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/instagram-icon.svg"
+          }
+        ]
+      },
+      "inclusos": {
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          }
+        ]
+      },
+      "adicionais": {
+        "items": [
+          {
+            "name": "Deezer Now",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/deezer-now.svg"
+          },
+          {
+            "name": "Paramount+",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/paramount.svg"
+          },
+          {
+            "name": "Prime Vídeo - Versão celular",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/prime-video-versao-celular.svg"
+          }
+        ]
+      }
+    },
+    "details": {
+      "infos": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp incluso",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          },
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/sms-icon.png"
+          }
+        ]
+      },
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "EXA Segurança",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          },
+          {
+            "name": "Bancah Premium + Jornais",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/bancah-premium+jornais.png"
+          }
+        ]
+      },
+      "regulamentos": {
+        "name": "Regulamentos",
+        "items": {
+          "etiqueta com prazo": {
+            "name": "Etiqueta padrão da oferta com prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/com-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-Plus-1.0-Fidel.pdf"
+          },
+          "etiqueta sem prazo": {
+            "name": "Etiqueta padrão da oferta sem prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/sem-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-Plus-1.0-Nao-Fidel.pdf"
+          },
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-do-plano.pdf"
+          },
+          "fidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-fidelizacao.pdf"
+          },
+          "especial": {
+            "name": "Regulamento de bônus Especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-especial.pdf"
+          },
+          "promo": {
+            "name": "Regulamento de bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-promo.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimvarejocontrolepremium": {
+    "sku": "vtxtimvarejocontrolepremium",
+    "name": "TIM Controle Premium 1.0",
+    "price": {
+      "base": 12299,
+      "fidelity": 8499,
+      "additional": 0
+    },
+    "franchise": {
+      "base": 30000,
+      "total": 61000,
+      "bonus": {
+        "especial": 6000,
+        "redessociais": 5000,
+        "pormesporumano": 20000
+      }
+    },
+    "description": {
+      "ligacao": "Ligações Ilimitadas para todas as operadoras",
+      "sms": "SMS Ilimitado para todas as operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "30GB Core + 20GB Promo + 6GB Especial + 5GB Dedicado Redes sociais"
+    },
+    "vas": {
+      "exclusivos": {
+        "items": [
+          {
+            "name": "X",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/x-icon.svg"
+          },
+          {
+            "name": "Facebook",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/facebook-icon.svg"
+          },
+          {
+            "name": "Instagram",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/instagram-icon.svg"
+          }
+        ]
+      },
+      "inclusos": {
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          }
+        ]
+      },
+      "adicionais": {
+        "items": [
+          {
+            "name": "Amazon Prime",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/amazon-prime.svg"
+          },
+          {
+            "name": "Deezer Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/deezer-premium.svg"
+          },
+          {
+            "name": "Disney+ Padrão com anúncios",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/disney-plus.svg"
+          },
+          {
+            "name": "HBO Max Básico com anúncios",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/hbo-max.svg"
+          },
+          {
+            "name": "Globoplay",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/globo-play.svg"
+          },
+          {
+            "name": "Paramount+",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/paramount.svg"
+          },
+          {
+            "name": "Youtube Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-streaming-varejo/youtube-premium.svg"
+          }
+        ]
+      }
+    },
+    "details": {
+      "infos": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp incluso",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/redes-sociais-varejo/whatsapp-icon.svg"
+          },
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/icons-detalhes-planos/sms-icon.png"
+          }
+        ]
+      },
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Bancah Premium + Jornais",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/bancah-premium+jornais.png"
+          },
+          {
+            "name": "EXA Segurança Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-premium.png"
+          },
+          {
+            "name": "EXA Gestão Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-gestao-stand-benefit.png"
+          }
+        ]
+      },
+      "regulamentos": {
+        "name": "Regulamentos",
+        "items": {
+          "etiqueta com prazo": {
+            "name": "Etiqueta padrão da oferta com prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/com-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-Premium-1.0-Fidel.pdf"
+          },
+          "etiqueta sem prazo": {
+            "name": "Etiqueta padrão da oferta sem prazo de permanência",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/etiquetas-permanencia/sem-prazo-permanencia/controle-digita-varejo/Etiqueta-Padrao-TIM-Controle-Premium-1.0-Nao-Fidel.pdf"
+          },
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-do-plano.pdf"
+          },
+          "fidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-fidelizacao.pdf"
+          },
+          "especial": {
+            "name": "Regulamento de bônus Especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-especial.pdf"
+          },
+          "promo": {
+            "name": "Regulamento de bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/regulamentos-default/controle/regulamento-bonus-promo.pdf"
+          }
+        }
+      }
+    }
+  }
+}

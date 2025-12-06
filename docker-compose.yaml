@@ -1,20 +1,31 @@
 services:
+  build-core:
+    build:
+      context: ./packages/core
+      dockerfile: Dockerfile
+    image: vertex/core-packages
+    volumes:
+      - core-dist:/app/dist
   build-mf-home:
     build:
       context: ./microservices/home
       dockerfile: Dockerfile
+    image: vertex/tim-varejo-mf-home
     volumes:
       - mf-home-dist:/app/dist
-
   nginx:
     build: .
     ports:
       - 8080:80
     container_name: server
+    image: vertex/tim-varejo-nginx
     volumes:
+      - core-dist:/usr/share/nginx/html/core:ro
       - mf-home-dist:/usr/share/nginx/html/mf-home:ro
     depends_on:
+      - build-core
       - build-mf-home
 
 volumes:
+  core-dist:
   mf-home-dist:

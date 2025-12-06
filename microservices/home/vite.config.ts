@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
 import Sitemap from "vite-plugin-sitemap"
 import { FeedBuilder } from '@xcommerceweb/google-merchant-feed'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
@@ -9,6 +8,8 @@ import { vitePluginVersionMark } from 'vite-plugin-version-mark'
 import federation from "@originjs/vite-plugin-federation"
 
 import URLS from './public/data/sitemap/urls.json'
+
+import PORTIFIO_DEFAULT from "./src/data/portifolios/portifolioDefault.json"
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -28,11 +29,17 @@ export default defineConfig(({ mode }) => {
       federation({
         name: 'mf_home',
         filename: 'remoteEntry.js',
+        remotes: {
+          core: `http://localhost:8080/core/remoteEntry.js`
+        },
         exposes: {
           './App': './src/remote.ts'
         },
-        shared: ['vue'],
-        shareScope: "mf_home"
+        shared: {
+          vue: {
+            singleton: true
+          }
+        },
       }),
 
       vue({
@@ -42,8 +49,8 @@ export default defineConfig(({ mode }) => {
       }),
 
       Sitemap({
-        hostname: 'https://teste.online',
-        outDir: path.resolve(__dirname, 'dist'),
+        hostname: env.VITE_APP_WEB_URL,
+        generateRobotsTxt: false,
         dynamicRoutes: (() => {
           const SITEMAP_URLS = []
           for (const url of Object.values(URLS)) {
@@ -58,42 +65,41 @@ export default defineConfig(({ mode }) => {
         outputFile: _version => ({
           path: 'googlemerchant.xml',
           content: (() => {
-            // Seu código do feedBuilder aqui (mantido igual, mas note: fetch pode falhar em build estático)
             const feedBuilder = new FeedBuilder();
             feedBuilder.withTitle(env.VITE_APP_WEB_TITLE)
             feedBuilder.withLink(env.VITE_APP_WEB_URL)
             feedBuilder.withDescription(env.VITE_APP_WEB_DESCRIPTION)
 
-            // ATENÇÃO: fetch em build time pode falhar — mova para runtime se possível
-            // Por enquanto, comente ou use dados mock para testar render
-            /*
-            fetch(`${env.VITE_APP_VERTEX_APPLICATION_SEED_API}?canalvendas=varejo&segmento=controle-fatura&regiao=SP&ddd=11`, {
-              method: "GET"
-            }).then((responseSeedWorker) => responseSeedWorker.json()).then((data) => {
-              if ("status" in data && data.status === 200) return
-              for (const { sku, name, description, price } of Object.values(data) as any) {
-                feedBuilder.withProduct({
-                  id: sku,
-                  title: name,
-                  description: description.hero,
-                  link: `${env.VITE_APP_WEB_URL}/pedido/${sku}`,
-                  imageLink: "",
-                  additionalImageLinks: [],
-                  condition: "new",
-                  availability: "in_stock",
-                  price: { currency: "BRL", value: Number(price.base) / 100 },
-                  googleProductCategory: "491",
-                  productType: "Página inicial > Planos para seu celular",
-                  taxCategory: "Planos de celular",
-                  customLabels: ["smartphone", "Plano para seu smartphone", "Chip", "Chip eSIM", "Plano Controle", "Plano Controle eSIM"],
-                  identifierExists: "no",
-                  brand: "tim",
-                  ageGroup: "adult",
-                  externalSellerId: "tim",
-                });
-              }
-            })
-            */
+            for (const {
+              sku,
+              name,
+              description,
+              price
+            } of Object.values(PORTIFIO_DEFAULT)) {
+              feedBuilder.withProduct({
+                id: sku,
+                title: name,
+                description: description.hero,
+                link: `${env.VITE_APP_WEB_URL}/pedido/${sku}`,
+                imageLink: "",
+                additionalImageLinks: [],
+                condition: "new",
+                availability: "in_stock",
+                price: {
+                  currency: "BRL",
+                  value: Number(price.fidelity) / 100
+                },
+                googleProductCategory: "491",
+                productType: "Página inicial > Planos TIM para seu celular",
+                taxCategory: "Planos de celular",
+                customLabels: ["TIM Controle", "TIM Controle eSIM", "Plano para seu smartphone", "Chip", "Chip eSIM", "Plano Controle", "Plano Controle eSIM"],
+                identifierExists: "no",
+                brand: "tim",
+                ageGroup: "adult",
+                externalSellerId: "tim",
+              });
+            }
+
             return feedBuilder.buildXml()
           })(),
         }),
@@ -171,6 +177,7 @@ export default defineConfig(({ mode }) => {
       base: '/mf-home/',
 
       rollupOptions: {
+        // external: ["core"],
         input: 'index.html',
       }
     },
