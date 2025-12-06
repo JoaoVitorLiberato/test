@@ -1,4 +1,4 @@
-declare module '@originjs/vite-plugin-federation' {
+declare module "@module-federation/vite" {
   interface SharedConfig {
     singleton?: boolean;
     eager?: boolean;
@@ -12,3 +12,4 @@ declare module '@originjs/vite-plugin-federation' {
     [key: string]: SharedConfig | boolean | string;
   }
 }
+

@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite'
 import { fileURLToPath, URL } from 'url'
 
 export default defineConfig(({ mode }) => {
@@ -12,11 +12,17 @@ export default defineConfig(({ mode }) => {
       vue(),
 
       federation({
-        name: "container",
+        name: 'container',
+        filename: 'remoteEntry.[hash].js',
+        manifest: true,
+
         remotes: {
-          mf_home: "http://localhost:8080/mf-home/remoteEntry.js"
+          mf_home: "http://localhost:8080/mf-home/.vite/manifest.json"
         },
-        shared: ["vue"]
+
+        shared: {
+          vue: { singleton: true }
+        },
       })
     ],
 
@@ -67,15 +73,10 @@ export default defineConfig(({ mode }) => {
 
     build: {
       target: 'esnext',
-      assetsInlineLimit: 126,
-      sourcemap: 'hidden',
-      minify: false,
       cssCodeSplit: false,
-      assetsDir: './',
-
       rollupOptions: {
-        input: 'index.html', 
-      }
+        input: 'index.html',
+      },
     },
   }
 })

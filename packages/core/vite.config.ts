@@ -1,83 +1,51 @@
-import { defineConfig, loadEnv } from 'vite'
+// packages/core/vite.config.ts
 import vue from '@vitejs/plugin-vue'
-import federation from '@originjs/vite-plugin-federation'
+import { defineConfig } from 'vite'
+import { federation } from '@module-federation/vite'
 import { fileURLToPath, URL } from 'url'
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
-  process.env = { ...process.env, ...env }
-
-  return {
-    plugins: [
-      vue(),
-      federation({
-        name: "core",
-        filename: `remoteEntry.js`,
-        exposes: {
-          "./index": "./src/index.ts"
-        },
-        shared: {
-          vue: {
-            singleton: true
-          },
-          pinia: {
-            singleton: true,
-            eager: true,
-          },
-        },
-        manifest: true,
-        runtimePlugins: false,
-        scriptFormat: "iife", 
-      })
-    ],
-    
-    assetsInclude: ['**/*.html', "src/**/*.html"],
-
-    resolve: {
-      alias: {
-        '@': fileURLToPath(new URL('src', import.meta.url)),
+export default defineConfig({
+  plugins: [
+    vue(),
+    federation({
+      name: 'core',
+      filename: 'remoteEntry.[hash].js',
+      manifest: true,
+      exposes: {
+        './index': './src/index.ts'
       },
-      extensions: [
-        '.js',
-        '.json',
-        '.jsx',
-        '.mjs',
-        '.ts',
-        '.tsx',
-        '.vue',
-      ],
+      shared: {
+        vue: { singleton: true },
+        pinia: { singleton: true, eager: true }
+      },
+    })
+  ],
+
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+
+  build: {
+    base: '/core/',
+    target: 'esnext',
+    minify: 'terser',
+    cssCodeSplit: false,
+
+    assetsInlineLimit: 126,
+    sourcemap: 'hidden',
+
+    lib: {
+      entry: 'src/index.ts',  // ← importante pro remote puro
+      formats: ['es']
     },
-
-    define: {
-      'process.env.VITE_APP_WEB_TITLE': JSON.stringify(env.VITE_APP_WEB_TITLE),
-    },
-
-    server: {
-      port: 3000,
-      cors: true,
-      strictPort: true
-    },
-
-    preview: {
-      port: 3000,
-      strictPort: true
-    },
-
-    build: {
-      target: 'esnext',
-      assetsInlineLimit: 126,
-      sourcemap: 'hidden',
-      minify: false,
-      cssCodeSplit: false,
-      assetsDir: '',
-
-      base: '/core/',
-
-      rollupOptions: {
-        output: {
-          format: "esm"
-        }
+    rollupOptions: {
+      output: {
+        entryFileNames: 'entry/[name]-[hash].js',
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
       }
-    },
+    }
   }
 })
