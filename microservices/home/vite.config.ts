@@ -30,9 +30,7 @@ export default defineConfig(({ mode }) => {
         name: 'mf_home',
         filename: 'remoteEntry.js',
         remotes: {
-          "core": mode === 'development'
-            ? "http://localhost:3000/core/remoteEntry.js"
-            : `${env.VITE_APP_WEB_URL || ''}/core/remoteEntry.js`
+          core: "http://localhost:8080/core/remoteEntry.js"
         },
         exposes: {
           './App': './src/remote.ts'
@@ -41,8 +39,7 @@ export default defineConfig(({ mode }) => {
           vue: {
             singleton: true
           }
-        },
-        shareScope: "mf_home"
+        }
       }),
 
       vue({
@@ -180,8 +177,8 @@ export default defineConfig(({ mode }) => {
       base: '/mf-home/',
 
       rollupOptions: {
+        external: ["core"],
         input: 'index.html',
-        external: ['core', 'core/'],
       }
     },
   }
