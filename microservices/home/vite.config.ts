@@ -177,7 +177,7 @@ export default defineConfig(({ mode }) => {
       base: '/mf-home/',
 
       rollupOptions: {
-        external: ["core"],
+        // external: ["core"],
         input: 'index.html',
       }
     },

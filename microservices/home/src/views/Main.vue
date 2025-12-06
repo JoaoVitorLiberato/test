@@ -19,18 +19,19 @@
 
 <script setup lang="ts">
   import { onMounted } from "vue"
+  // import { ensureRemote } from '@/utils/federation';
 
-  onMounted(async () => {
-    try {
-      const mod = await import('core')
-      // mod.default.mount(remote.value!)
-      console.log('teste', mod)
-    } catch (err) {
-      console.error('Error loading MF-Home:', err)
-    }
-  })
+onMounted(async () => {
+  try {
+    // await ensureRemote('core', 'http://localhost:8080/core/remoteEntry.js');
+    const core = await import('core/index'); // usar o caminho exposto
+    console.log('core loaded', core);
+  } catch (err) {
+    console.error('Error loading core module:', err);
+  }
+});
 
-  onMounted(async() => {
+  // onMounted(async() => {
     // try {
       // Importação do core via Module Federation
       // A função importRemote garante que o remoteEntry.js seja carregado antes
@@ -47,5 +48,5 @@
     // } catch (error) {
     //   console.error("Error loading core module:", error)
     // }
-  })
+  // })
 </script>
